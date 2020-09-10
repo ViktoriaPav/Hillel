@@ -21,8 +21,8 @@ public class Main {
         int HumanYears = s.nextInt();
         Task_2 task_2 = new Task_2();
         System.out.println("HumanYears: " + HumanYears);
-        System.out.println("CatYears: " + task_2.Cat_Years(HumanYears));
-        System.out.println("DogYears: " + task_2.Dog_Years(HumanYears));
+        System.out.println("CatYears: " + task_2.catYears(HumanYears));
+        System.out.println("DogYears: " + task_2.dogYears(HumanYears));
 
         // Task 3 - not done
 
@@ -30,7 +30,7 @@ public class Main {
         System.out.println("Task #4. Please enter text:");
         Task_4 task_4 = new Task_4();
         String text = sc.nextLine();
-        System.out.println(task_4.UpperFirstLetterText(text));
+        System.out.println(task_4.upperFirstLetterText(text));
     }
 }
 

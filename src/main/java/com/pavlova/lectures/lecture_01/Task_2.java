@@ -2,35 +2,35 @@ package com.pavlova.lectures.lecture_01;
 
 public class Task_2 {
 
-    int CatYears;
-    int DogYears;
+    int catYears;
+    int dogYears;
 
-    public int Cat_Years(int HumanYears) {
+    public int catYears(int HumanYears) {
 
         if (HumanYears >= 1) {
-            CatYears = 15;
+            catYears = 15;
         }
         if (HumanYears >= 2) {
-            CatYears = CatYears + 9;
+            catYears = catYears + 9;
         }
         if (HumanYears >= 3) {
-            CatYears = CatYears + (HumanYears - 2) * 4;
+            catYears = catYears + (HumanYears - 2) * 4;
         }
-        return CatYears;
+        return catYears;
     }
 
-    public int Dog_Years(int HumanYears) {
+    public int dogYears(int HumanYears) {
 
         if (HumanYears >= 1) {
-            DogYears = 15;
+            dogYears = 15;
         }
         if (HumanYears >= 2) {
-            DogYears = DogYears + 9;
+            dogYears = dogYears + 9;
         }
         if (HumanYears >= 3) {
-            DogYears = DogYears + (HumanYears - 2) * 5;
+            dogYears = dogYears + (HumanYears - 2) * 5;
         }
-        return DogYears;
+        return dogYears;
     }
 
 }
