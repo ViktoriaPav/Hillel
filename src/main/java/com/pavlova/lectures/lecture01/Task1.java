@@ -1,6 +1,6 @@
-package com.pavlova.lectures.lecture_01;
+package com.pavlova.lectures.lecture01;
 
-public class Task_1 {
+public class Task1 {
 
     public void swap (int a, int b){
         a += b;

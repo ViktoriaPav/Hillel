@@ -1,4 +1,4 @@
-package com.pavlova.lectures.lecture_01;
+package com.pavlova.lectures.lecture01;
 
 import java.util.Scanner;
 
@@ -13,13 +13,13 @@ public class Main {
         int a = s.nextInt();
         System.out.println("Task #1. Please enter b:");
         int b = s.nextInt();
-        Task_1 task_1 = new Task_1();
+        Task1 task_1 = new Task1();
         task_1.swap(a, b);
 
         // Task 2
         System.out.println("Task #2. Please enter human years:");
         int HumanYears = s.nextInt();
-        Task_2 task_2 = new Task_2();
+        Task2 task_2 = new Task2();
         System.out.println("HumanYears: " + HumanYears);
         System.out.println("CatYears: " + task_2.catYears(HumanYears));
         System.out.println("DogYears: " + task_2.dogYears(HumanYears));
@@ -28,7 +28,7 @@ public class Main {
 
         // Task 4
         System.out.println("Task #4. Please enter text:");
-        Task_4 task_4 = new Task_4();
+        Task4 task_4 = new Task4();
         String text = sc.nextLine();
         System.out.println(task_4.upperFirstLetterText(text));
     }

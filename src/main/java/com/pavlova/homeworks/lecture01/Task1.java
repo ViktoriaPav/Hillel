@@ -1,6 +1,6 @@
-package com.pavlova.homeworks.lecture_01;
+package com.pavlova.homeworks.lecture01;
 
-public class Task_1 {
+public class Task1 {
 
     public double calculateLogarithm(double a, double b) {
         double result;

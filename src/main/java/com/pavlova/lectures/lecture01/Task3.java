@@ -1,6 +1,6 @@
-package com.pavlova.lectures.lecture_01;
+package com.pavlova.lectures.lecture01;
 
-public class Task_3 {
+public class Task3 {
     public static void main(String[] args) {
 
         for (int i = 0; i < 7; i++) {

@@ -1,6 +1,6 @@
-package com.pavlova.homeworks.lecture_01;
+package com.pavlova.homeworks.lecture01;
 
-public class Task_3 {
+public class Task3 {
 
     public double[] solveQuadraticEquation(int a, int b, int c) {
         double[] result = new double[2];
@@ -21,5 +21,4 @@ public class Task_3 {
     private double d(int a, int b, int c) {
         return Math.pow(b, 2) - 4 * a * c;
     }
-
 }

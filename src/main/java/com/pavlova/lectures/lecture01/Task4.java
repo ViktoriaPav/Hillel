@@ -1,6 +1,6 @@
-package com.pavlova.lectures.lecture_01;
+package com.pavlova.lectures.lecture01;
 
-public class Task_4 {
+public class Task4 {
 
     protected String upperFirstLetterText(String text){
         String upperFirstLetter = new String();
