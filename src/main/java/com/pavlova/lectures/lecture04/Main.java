@@ -1,5 +1,7 @@
 package com.pavlova.lectures.lecture04;
 
+import java.lang.reflect.Array;
+
 public class Main {
     public static void main(String[] args) {
         int[] t = {5, 8, 3, 9, 10, 0};
@@ -9,7 +11,6 @@ public class Main {
         System.out.println("This " + checkPalindrome(s1));
         Integer y = 145;
         System.out.println(isFactorials(y));
-
 
     }
 
