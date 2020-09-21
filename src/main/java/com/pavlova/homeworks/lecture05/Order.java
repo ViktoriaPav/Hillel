@@ -1,6 +1,7 @@
 package com.pavlova.homeworks.lecture05;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Order {
     private String item;
@@ -45,5 +46,31 @@ public class Order {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+        Order order = (Order) o;
+        return getSize() == order.getSize() &&
+                Double.compare(order.getPrice(), getPrice()) == 0 &&
+                getItem().equals(order.getItem()) &&
+                getDeliveryDate().equals(order.getDeliveryDate());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getItem(), getDeliveryDate(), getSize(), getPrice());
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "item='" + item + '\'' +
+                ", deliveryDate=" + deliveryDate +
+                ", size=" + size +
+                ", price=" + price +
+                '}';
     }
 }
