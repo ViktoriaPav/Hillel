@@ -13,9 +13,9 @@ public final class Book implements Cloneable {
     private final Long isbn;
     private SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
 
-    public Book(Author author, Date issueDate, Genre genre, Long isbn) {
-        this.author = author;
-        this.issueDate = issueDate;
+    public Book(Author author, Date issueDate, Genre genre, Long isbn) throws CloneNotSupportedException {
+        this.author = (Author) author.clone();
+        this.issueDate = new Date(issueDate.getTime());
         this.genre = genre;
         this.isbn = isbn;
     }
@@ -63,7 +63,7 @@ public final class Book implements Cloneable {
         return "Book{" +
                 "author=" + author +
                 ", issueDate=" + format.format(issueDate) +
-                ", genre=" + genre.genreLowerCase +
+                ", genre=" + genre +
                 ", isbn=" + isbn +
                 '}';
     }
