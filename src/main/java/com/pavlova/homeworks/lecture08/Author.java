@@ -1,17 +1,36 @@
 package com.pavlova.homeworks.lecture08;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public final class Author {
+public final class Author implements Cloneable {
     private final String firstName;
     private final String lastName;
-    private Date dateOfBirth;
+    private final Date dateOfBirth;
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
 
     public Author(String firstName, String lastName, Date dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Date getDateOfBirth() {
+        return new Date(this.dateOfBirth.getTime());
     }
 
     @Override
@@ -34,7 +53,7 @@ public final class Author {
         return "Author{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
+                ", dateOfBirth=" + format.format(dateOfBirth) +
                 '}';
     }
 }
