@@ -12,6 +12,7 @@ class FractionTest {
     private static Fraction fraction3;
     private static Fraction fraction4;
     private static Fraction fraction5;
+    private static Fraction fraction6;
 
     @BeforeAll
     static void initI() {
@@ -20,6 +21,7 @@ class FractionTest {
         fraction3 = new FractionImp(1, 3);
         fraction4 = new FractionImp(2, 4);
         fraction5 = new FractionImp(5, 3);
+        fraction6 = new FractionImp(3, 9);
     }
 
     @Test
@@ -32,6 +34,12 @@ class FractionTest {
     void testEqualsWithNotSameDenomination() {
         assertFalse(fraction1.equals(fraction3));
         assertFalse(fraction1.hashCode() == fraction3.hashCode());
+    }
+
+    @Test
+    void testEquals(){
+        assertTrue(fraction3.equals(fraction6));
+        assertTrue(fraction3.hashCode() == fraction6.hashCode());
     }
 
     @Test
