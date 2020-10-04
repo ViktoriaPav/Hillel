@@ -6,12 +6,6 @@ public interface Fraction {
 
     int getDenominator();
 
-    boolean equals(Object o);
-
-    int hashCode();
-
-    String toString();
-
     Fraction plus(Fraction other);
 
     Fraction minus(Fraction other);
@@ -19,4 +13,5 @@ public interface Fraction {
     Fraction multiply(Fraction other);
 
     Fraction divide(Fraction other);
+
 }

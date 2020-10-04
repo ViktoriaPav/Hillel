@@ -1,7 +1,5 @@
 package com.pavlova.homeworks.lecture06;
 
-import java.util.Objects;
-
 public class FractionImp implements Fraction {
     private final int numerator;
     private final int denominator;
@@ -19,6 +17,10 @@ public class FractionImp implements Fraction {
         if (this == o) return true;
         if (!(o instanceof FractionImp)) return false;
         FractionImp that = (FractionImp) o;
+
+        /*
+         * Fractions 0/2 and 0/6 it `s = 0 and should be equals
+         */
         if (getNumerator() == 0) {
             return getNumerator() == that.getNumerator();
         }
@@ -26,7 +28,8 @@ public class FractionImp implements Fraction {
                 getDenominator() == that.getDenominator()) {
             return true;
         }
-        if (getDenominator() / that.getDenominator() == getNumerator() / that.getNumerator()) {
+
+        if ((double) getNumerator() / getDenominator() == (double) that.getNumerator() / that.getDenominator()) {
             return true;
         }
         return false;
@@ -34,7 +37,9 @@ public class FractionImp implements Fraction {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNumerator(), getDenominator());
+        double result = (double) denominator / numerator;
+        result = 31 * result;
+        return (int) result;
     }
 
     @Override
@@ -59,34 +64,39 @@ public class FractionImp implements Fraction {
     public Fraction plus(Fraction other) {
         int numerator = (getNumerator() * other.getDenominator()) + (other.getNumerator() * getDenominator());
         int denominator = getDenominator() * other.getDenominator();
-        if (numerator % denominator == 0 && numerator != 0) {
-            denominator = denominator / numerator;
-            numerator = numerator / numerator;
-        }
-        return new FractionImp(numerator, denominator);
+        return fractionReduction(numerator, denominator);
     }
 
     @Override
     public Fraction minus(Fraction other) {
         int numerator = (getNumerator() * other.getDenominator()) - (other.getNumerator() * getDenominator());
         int denominator = getDenominator() * other.getDenominator();
-        if (numerator % denominator == 0 && numerator != 0) {
-            denominator = denominator / numerator;
-            numerator = numerator / numerator;
-        }
-        return new FractionImp(numerator, denominator);
+        return fractionReduction(numerator, denominator);
     }
 
     @Override
     public Fraction multiply(Fraction other) {
-        return new FractionImp(getNumerator() * other.getNumerator(),
-                getDenominator() * other.getDenominator());
-
+        int numerator = getNumerator() * other.getNumerator();
+        int denominator = getDenominator() * other.getDenominator();
+        return fractionReduction(numerator, denominator);
     }
 
     @Override
     public Fraction divide(Fraction other) {
-        return new FractionImp(getNumerator() * other.getDenominator(),
-                getDenominator() * other.getNumerator());
+        int numerator = getNumerator() * other.getDenominator();
+        int denominator = getDenominator() * other.getNumerator();
+        return fractionReduction(numerator, denominator);
     }
+
+    private Fraction fractionReduction(int numerator, int denominator) {
+        if (numerator != 0 && denominator % numerator == 0) {
+            denominator = denominator / numerator;
+            numerator = numerator / numerator;
+        } else if (numerator % denominator == 0) {
+            numerator = numerator / denominator;
+            denominator = denominator / denominator;
+        }
+        return new FractionImp(numerator, denominator);
+    }
+
 }
