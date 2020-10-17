@@ -1,11 +1,12 @@
 package com.pavlova.homeworks.lecture09;
 
 import lombok.*;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Value
-public class Book  {
+public class Book {
     private Author author;
     private Date issueDate;
     private Genre genre;

@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public final class Author  {
+public final class Author {
     private final String firstName;
     private final String lastName;
     private final Date dateOfBirth;

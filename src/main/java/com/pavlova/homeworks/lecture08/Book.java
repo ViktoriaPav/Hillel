@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public final class Book  {
+public final class Book {
     private final Author author;
     private final Date issueDate;
     private final Genre genre;
@@ -14,7 +14,7 @@ public final class Book  {
     private SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
 
     public Book(Author author, Date issueDate, Genre genre, Long isbn) {
-        this.author =  author;
+        this.author = author;
         this.issueDate = new Date(issueDate.getTime());
         this.genre = genre;
         this.isbn = isbn;
@@ -42,10 +42,10 @@ public final class Book  {
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
 
-            return Objects.equals(getAuthor(), book.getAuthor()) &&
-                    Objects.equals(getIssueDate(), book.getIssueDate()) &&
-                    getGenre() == book.getGenre() &&
-                    Objects.equals(getIsbn(), book.getIsbn());
+        return Objects.equals(getAuthor(), book.getAuthor()) &&
+                Objects.equals(getIssueDate(), book.getIssueDate()) &&
+                getGenre() == book.getGenre() &&
+                Objects.equals(getIsbn(), book.getIsbn());
     }
 
     @SneakyThrows
