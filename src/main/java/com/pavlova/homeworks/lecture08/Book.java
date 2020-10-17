@@ -6,22 +6,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public final class Book implements Cloneable {
+public final class Book  {
     private final Author author;
     private final Date issueDate;
     private final Genre genre;
     private final Long isbn;
     private SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
 
-    public Book(Author author, Date issueDate, Genre genre, Long isbn) throws CloneNotSupportedException {
-        this.author = (Author) author.clone();
+    public Book(Author author, Date issueDate, Genre genre, Long isbn) {
+        this.author =  author;
         this.issueDate = new Date(issueDate.getTime());
         this.genre = genre;
         this.isbn = isbn;
     }
 
-    public Author getAuthor() throws CloneNotSupportedException {
-        return (Author) author.clone();
+    public Author getAuthor() {
+        return author;
     }
 
     public Date getIssueDate() {
@@ -41,15 +41,11 @@ public final class Book implements Cloneable {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
-        try {
+
             return Objects.equals(getAuthor(), book.getAuthor()) &&
                     Objects.equals(getIssueDate(), book.getIssueDate()) &&
                     getGenre() == book.getGenre() &&
                     Objects.equals(getIsbn(), book.getIsbn());
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     @SneakyThrows
