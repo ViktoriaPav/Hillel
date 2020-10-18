@@ -15,4 +15,5 @@ public class SoutLogger extends Logger {
     public void log(String message, LogLevel level) {
         System.out.println(getFormat().format(new Date()) + " " + level.getLabel() + ": " + message);
     }
+
 }
