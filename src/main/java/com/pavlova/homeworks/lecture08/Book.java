@@ -48,7 +48,6 @@ public final class Book {
                 Objects.equals(getIsbn(), book.getIsbn());
     }
 
-    @SneakyThrows
     @Override
     public int hashCode() {
         return Objects.hash(getAuthor(), getIssueDate(), getGenre(), getIsbn());
