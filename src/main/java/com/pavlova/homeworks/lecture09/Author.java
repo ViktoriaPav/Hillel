@@ -19,6 +19,12 @@ public class Author {
         return new Date(this.dateOfBirth.getTime());
     }
 
+    public Author(String firstName, String lastName, Date dateOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = new Date(dateOfBirth.getTime());
+    }
+
     @Override
     public String toString() {
         return "Author{" +

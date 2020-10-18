@@ -1,7 +1,6 @@
 package com.pavlova.homeworks.lecture09;
 
 import lombok.*;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,6 +12,13 @@ public class Book {
     private Long isbn;
     @Getter(AccessLevel.NONE)
     private SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
+
+    public Book(Author author, Date issueDate, Genre genre, Long isbn) {
+        this.author = author;
+        this.issueDate = new Date(issueDate.getTime());
+        this.genre = genre;
+        this.isbn = isbn;
+    }
 
     public Date getIssueDate() {
         return new Date(issueDate.getTime());
