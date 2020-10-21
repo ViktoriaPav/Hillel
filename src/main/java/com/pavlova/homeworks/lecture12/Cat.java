@@ -2,30 +2,43 @@ package com.pavlova.homeworks.lecture12;
 
 import lombok.Data;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
 
 @Data
 public class Cat {
-    Queue<Mouse> stomach = new ArrayDeque<>(3);
+    Queue<Mouse> stomach = new ArrayBlockingQueue<>(5);
+    List<Mouse> substance = new ArrayList<>();
 
-    public Queue eat(Mouse mouse) {
-        int i = stomach.size();
-        if(i < 3) {
+    public void eat(Mouse mouse) {
+        try {
             stomach.add(mouse);
-        } else {
-            System.out.println("Error: stomach is full and can`t eat this mouse!");
+        } catch (Exception e) {
+            System.out.println("Error: stomach is full and can`t eat " + mouse);
         }
-        return stomach;
     }
 
-    public Queue mouseOut() {
-        stomach.poll();
-        return stomach;
+    public Mouse mouseOut() {
+        return stomach.poll();
     }
 
-    public Queue allMouseOut() {
+    public void allMouseOut(Mouse mouse) {
+        createSubstance();
+        System.out.println(substance);
+        if (isCatAteMouse(mouse)) {
+            System.out.println("Cat has ate " + mouse);
+        } else {
+            System.out.println("Cat has not ate " + mouse);
+        }
+    }
+
+    private List createSubstance() {
+        substance.addAll(stomach);
         stomach.removeAll(stomach);
-        return stomach;
+        return substance;
+    }
+
+    private boolean isCatAteMouse(Mouse mouse) {
+        return substance.contains(mouse);
     }
 }

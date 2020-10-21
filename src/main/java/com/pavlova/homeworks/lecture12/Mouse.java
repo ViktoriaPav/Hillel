@@ -6,5 +6,5 @@ import lombok.Data;
 @Data @AllArgsConstructor
 public class Mouse {
     private String name;
-    private double calories;
+    private int calories;
 }
