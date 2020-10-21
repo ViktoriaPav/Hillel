@@ -34,7 +34,7 @@ public class Cat {
 
     private List createSubstance() {
         substance.addAll(stomach);
-        stomach.removeAll(stomach);
+        stomach.clear();
         return substance;
     }
 
