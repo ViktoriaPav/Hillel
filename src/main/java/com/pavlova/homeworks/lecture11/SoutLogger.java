@@ -6,9 +6,8 @@ import java.util.Date;
 
 public class SoutLogger extends Logger {
 
-    @Override
-    public void log(String message) {
-        System.out.println(getFormat().format(new Date()) + " " + message);
+    public SoutLogger(LogLevel defaultLevel) {
+        super(defaultLevel);
     }
 
     @Override

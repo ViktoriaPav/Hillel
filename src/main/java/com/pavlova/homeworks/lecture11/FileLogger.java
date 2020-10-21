@@ -8,13 +8,8 @@ import java.util.Date;
 
 public class FileLogger extends Logger {
 
-    @Override
-    public void log(String message) {
-        try (FileWriter fileWriter = new FileWriter("logger.txt")) {
-            fileWriter.write(getFormat().format(new Date()) + " " + message);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public FileLogger(LogLevel defaultLevel) {
+        super(defaultLevel);
     }
 
     @Override
