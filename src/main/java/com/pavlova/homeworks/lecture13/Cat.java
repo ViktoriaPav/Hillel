@@ -3,17 +3,16 @@ package com.pavlova.homeworks.lecture13;
 import lombok.Data;
 
 import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
 
 @Data
 public class Cat {
-    Queue<Mouse> stomach = new ArrayBlockingQueue<>(5);
-    List<Mouse> substance = new ArrayList<>();
+    private List<Mouse> substance = new ArrayList<>();
+    private Queue<Mouse> stomach = new PriorityQueue<>(5);
 
     public void eat(Mouse mouse) {
-        try {
+        if (stomach.size() < 5) {
             stomach.add(mouse);
-        } catch (Exception e) {
+        } else {
             System.out.println("Error: stomach is full and can`t eat " + mouse);
         }
     }
@@ -32,10 +31,9 @@ public class Cat {
         }
     }
 
-    private List createSubstance() {
+    private void createSubstance() {
         substance.addAll(stomach);
         stomach.clear();
-        return substance;
     }
 
     private boolean isCatAteMouse(Mouse mouse) {
