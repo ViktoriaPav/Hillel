@@ -1,7 +1,7 @@
 package com.pavlova.homeworks.lecture24;
 
 public class SQL {
-    String firstQuery = "select * from employees where id / 2 !=0 ";
+    String firstQuery = "select * from employees where id % 2 !=0 ";
     String secondQuery = "select * from employees where first_name = 'David'";
     String thirdQuery = "select * from employees where department_id = 54 and salary > 5000";
     String fourthQuery = "select * from employees where first_name like '%d'";
