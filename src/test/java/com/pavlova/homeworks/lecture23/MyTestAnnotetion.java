@@ -2,8 +2,6 @@ package com.pavlova.homeworks.lecture23;
 
 import com.pavlova.homeworks.lecture06.Fraction;
 import com.pavlova.homeworks.lecture06.FractionImp;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +15,7 @@ public class MyTestAnnotetion {
     private static Fraction fraction6;
 
     @MyTest
-    void testEqualsWithSameDenominationAndSameFractions() {
+    public static void testEqualsWithSameDenominationAndSameFractions() {
         fraction1 = new FractionImp(1, 2);
         fraction2 = new FractionImp(1, 2);
         assertTrue(fraction1.equals(fraction2));
@@ -25,7 +23,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testEqualsWithNotSameDenomination() {
+    public static void testEqualsWithNotSameDenomination() {
         fraction1 = new FractionImp(1, 2);
         fraction3 = new FractionImp(1, 3);
         assertFalse(fraction1.equals(fraction3));
@@ -33,7 +31,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testEquals(){
+    public static void testEquals(){
         fraction3 = new FractionImp(1, 3);
         fraction6 = new FractionImp(3, 9);
         assertTrue(fraction3.equals(fraction6));
@@ -41,7 +39,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testEqualsWithNotSameDenominationButSameFractions() {
+    public static void testEqualsWithNotSameDenominationButSameFractions() {
         fraction1 = new FractionImp(1, 2);
         fraction4 = new FractionImp(2, 4);
         assertTrue(fraction1.equals(fraction4));
@@ -49,7 +47,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testPlusWithSameDenominator() {
+    public static void testPlusWithSameDenominator() {
         fraction1 = new FractionImp(1, 2);
         fraction2 = new FractionImp(1, 2);
         Fraction result = fraction1.plus(fraction2);
@@ -58,7 +56,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testPlusWithNotSameDenominator() {
+    public static void testPlusWithNotSameDenominator() {
         fraction1 = new FractionImp(1, 2);
         fraction3 = new FractionImp(1, 3);
         Fraction result = fraction1.plus(fraction3);
@@ -67,7 +65,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testPlusWithSameDenominatorWhereNumeratorMoreThenDenominator() {
+    public static void testPlusWithSameDenominatorWhereNumeratorMoreThenDenominator() {
         fraction3 = new FractionImp(1, 3);
         fraction5 = new FractionImp(5, 3);
         Fraction result = fraction3.plus(fraction5);
@@ -76,7 +74,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testMinusWithSameDenominator() {
+    public static void testMinusWithSameDenominator() {
         fraction1 = new FractionImp(1, 2);
         fraction2 = new FractionImp(1, 2);
         Fraction result = fraction1.minus(fraction2);
@@ -85,7 +83,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testMinusWithNotSameDenominator() {
+    public static void testMinusWithNotSameDenominator() {
         fraction1 = new FractionImp(1, 2);
         fraction5 = new FractionImp(5, 3);
         Fraction result = fraction5.minus(fraction1);
@@ -94,7 +92,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testMultiplyWithSameDenominator() {
+    public static void testMultiplyWithSameDenominator() {
         fraction1 = new FractionImp(1, 2);
         fraction2 = new FractionImp(1, 2);
         Fraction result = fraction1.multiply(fraction2);
@@ -103,7 +101,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testMultiplyWithNotSameDenominator() {
+    public static void testMultiplyWithNotSameDenominator() {
         fraction1 = new FractionImp(1, 2);
         fraction4 = new FractionImp(2, 4);
         Fraction result = fraction1.multiply(fraction4);
@@ -112,7 +110,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testDivideWithSameDenominatorAndNumerator() {
+    public static void testDivideWithSameDenominatorAndNumerator() {
         fraction1 = new FractionImp(1, 2);
         fraction2 = new FractionImp(1, 2);
         Fraction result = fraction1.divide(fraction2);
@@ -121,7 +119,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testDivideWithNotSameDenominatorAndNumerator() {
+    public static void testDivideWithNotSameDenominatorAndNumerator() {
         fraction1 = new FractionImp(1, 2);
         fraction3 = new FractionImp(1, 3);
         Fraction result = fraction1.divide(fraction3);
@@ -130,7 +128,7 @@ public class MyTestAnnotetion {
     }
 
     @MyTest
-    void testBadFractionCreation() {
+    public static void testBadFractionCreation() {
         assertThrows(IllegalArgumentException.class, () -> new FractionImp(1, 0));
     }
 

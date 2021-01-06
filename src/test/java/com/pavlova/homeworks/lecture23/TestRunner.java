@@ -1,5 +1,7 @@
 package com.pavlova.homeworks.lecture23;
 
+import org.junit.jupiter.api.Test;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
