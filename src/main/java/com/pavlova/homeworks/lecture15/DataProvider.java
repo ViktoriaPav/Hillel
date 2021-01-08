@@ -10,31 +10,25 @@ import java.util.*;
 
 public class DataProvider {
     Queue<Person> people = new PriorityQueue<>();
-    private DataMapper mapper;
+    private DataMapper mapper = new DataMapper();
 
     public List<Person> provide(String fileName) {
         ArrayList<Person> result = new ArrayList<>();
         List<String> personsData = readDataFromFile(fileName);
         for (String s : personsData) {
-            result.add( mapper.map(s));
+            result.add(mapper.map(s));
         }
-        return null;
+        return result;
     }
 
     private List<String> readDataFromFile(String fileName) {
         try {
-            return Files.readAllLines(Path.of("fileName"));
+            return Files.readAllLines(Path.of(fileName));
         } catch (IOException e) {
+            System.out.println("No file");
             e.printStackTrace();
             return Collections.emptyList();
         }
 
     }
-//
-//    public List<Person> DataMapper(String fileName) {
-//
-//        return null;
-//    }
-
-
 }
