@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public final class Author implements Cloneable {
+public final class Author {
     private final String firstName;
     private final String lastName;
     private final Date dateOfBirth;
@@ -14,11 +14,6 @@ public final class Author implements Cloneable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = new Date(dateOfBirth.getTime());
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
     }
 
     public String getFirstName() {
