@@ -10,14 +10,7 @@ public class CovidStatImpl implements CovidStat {
 
     @Override
     public String getMostPopularName() {
-        persons.sort(new Comparator<Person>() {
-                         @Override
-                         public int compare(Person o1, Person o2) {
-                             return o1.getName().compareTo(o2.getName());
-                         }
-                     }
-
-        );
+        persons.sort((p1, p2) -> p1.getName().compareTo(p2.getName()));
         int index = 0;
         int maxCounter = 1;
         int counter = 1;
@@ -37,14 +30,7 @@ public class CovidStatImpl implements CovidStat {
 
     @Override
     public String getMostPopularSurname() {
-        persons.sort(new Comparator<Person>() {
-                         @Override
-                         public int compare(Person o1, Person o2) {
-                             return o1.getSurname().compareTo(o2.getSurname());
-                         }
-                     }
-
-        );
+        persons.sort(Comparator.comparing(Person::getSurname));
         int index = 0;
         int maxCounter = 1;
         int counter = 1;
@@ -66,12 +52,7 @@ public class CovidStatImpl implements CovidStat {
     public String getMostPopularDomain() {
         TreeMap<String, Integer> domainsMap = new TreeMap<>();
         for (Person p : persons) {
-            String domain = p.getEmail().split("@")[1];
-            if (domainsMap.get(domain) != null) {
-                domainsMap.put(domain, domainsMap.get(domain) + 1);
-            } else {
-                domainsMap.put(domain, 1);
-            }
+            domainsMap.compute((p.getEmail().split("@")[1]), (key, oldValue) -> oldValue == null ? 1 : (oldValue + 1));
         }
         int maxCounter = 1;
         String mostPopularDomain = "";
